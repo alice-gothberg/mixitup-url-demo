@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	margin-top: 64px;
+	text-align: center;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 64px;
+	display: flex;
+	flex-flow: row wrap;
+
+	.filters {
+		flex: 0 0 25%;
+	}
+
+	.items {
+		flex: 1 0 60%;
+	}
+
+	.pagination {
+		flex: 0 0 100%;
+	}
+}
+
+form {
+	border-right: solid 2px rgba(0,0,0,0.1);
+	padding-right: 16px;
+  fieldset {
+	border: none;
+	margin-bottom: 40px;
+
+	legend {
+		font-size: 1rem;
+		font-weight: bold;
+		margin-bottom: 4px;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+
+		li {
+			padding: 8px 0;
+
+			button {
+				cursor: pointer;
+				background-color: transparent;
+				text-align: left;
+				width: 100%;
+				font-size: 1rem;
+				border: none;
+				outline: none; 
+
+				&:not(.show-all).mixitup-control-active::after {
+					content: ' \2714';
+					color:rgb(66, 66, 221);
+				}
+			}
+		}
+	}
+  }
+
+  button.reset-filters {
+	margin-top: 16px;
+	padding: 8px 16px;
+	border: solid 2px rgb(206, 38, 38);
+	outline: none;
+	background-color: white;
+	cursor: pointer;
+
+	&:hover {
+		background-color: rgb(206, 38, 38);
+		color: white;
+	}
+  }
+}
+
+.items {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	padding-left: 32px;
+
+	.item {
+		width: 112px;
+		height: 112px;
+		margin: 8px;
+
+		&[data-color="red"] {
+			border: solid 4px rgb(206, 38, 38);
+		}
+		&[data-color="green"] {
+			border: solid 4px rgb(60, 165, 60);
+		}
+		&[data-color="blue"] {
+			border: solid 4px rgb(66, 66, 221);
+		}
+	}
+}
+.pagination {
+	padding-top: 32px;
+	text-align: center;
+
+	button {
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background-color: transparent;
+		outline: none;
+		border-color: darkblue;
+		color: darkblue;
+		font-weight: bold;
+
+		&.mixitup-page-active {
+			background-color: darkblue;
+			color: white;
+		}
+
+		&.mixitup-page-disabled {
+			opacity: 0.25;
+		}
+	}
+}
+
+.info {
+	max-width: 900px;
+	margin: 64px auto;
+	&, * {
+		font-family: 'Courier New', Courier, monospace;
+	}
+	
+	details {
+		margin-bottom: 8px;
+
+		summary {
+			margin-bottom: 8px;
+			cursor: pointer;
+		}
+
+		div {
+			margin-bottom: 16px;
+		}
+
+		a {
+			color: rgb(60, 165, 60);
+			font-weight: bold;
+		}
+	}
+}

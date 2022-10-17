@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mixitup demo</title>
+	<link rel="stylesheet" href="wwwroot/css/main.css">
+</head>
+<body>
+	<h1>Mixitup multifilter and pagination with searchstring</h1>
+	<div class="container">
+		<section class="filters">
+			<form>
+				<fieldset data-filter-group="orderby">
+					<legend>Sort:</legend>
+					<ul>
+						<li>
+							<button class="control control-orderby" data-sort="default" data-sort-type="default">Default</button>
+						</li>
+						<li>
+							<button class="control control-orderby" data-sort="default:desc" data-sort-type="default:desc">Default, descending</button>
+						</li>
+						<li>
+							<button class="control control-orderby" data-sort="random" data-sort-type="random">Random</button>
+						</li>
+					</ul>
+				</fieldset>
+		
+				<fieldset data-filter-group="category">
+					<legend>Filter by category: (multiple allowed)</legend>
+					<ul>
+						<li>
+							<button class="control show-all" data-filter="">All categories</button>
+						</li>
+						<li>
+							<button class="control control-category" data-toggle="[data-category~=category-1]" data-label-clean="category-1">Category 1</button>
+						</li>
+						<li>
+							<button class="control control-category" data-toggle="[data-category~=category-2]" data-label-clean="category-2">Category 2</button>
+						</li>
+						<li>
+							<button class="control control-category" data-toggle="[data-category~=category-3]" data-label-clean="category-3">Category 3</button>
+						</li>
+					</ul>
+				</fieldset>
+		
+				<fieldset data-filter-group="color">
+					<legend>Filter by color: (only one)</legend>
+					<ul>
+						<li>
+							<button class="control show-all" data-filter="">All colors</button>
+						</li>
+						<li>
+							<button class="control control-color" data-filter="[data-color~=red]" data-label-clean="red">Red</button>
+						</li>
+						<li>
+							<button class="control control-color" data-filter="[data-color~=green]" data-label-clean="green">Green</button>
+						</li>
+						<li>
+							<button class="control control-color" data-filter="[data-color~=blue]" data-label-clean="blue">Blue</button>
+						</li>
+					</ul>
+				</fieldset>
+				<button class="reset-filters" type="reset" data-filter="all">Reset filters</button>
+			</form>
+		</section>
+		
+		<section class="items mix-container">
+			<div class="item mix" data-category="category-3" data-color="red">3</div>
+			<div class="item mix" data-category="category-2" data-color="green">2</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-2" data-color="red">2</div>
+			<div class="item mix" data-category="category-2 category-3" data-color="green">2 3</div>
+			<div class="item mix" data-category="category-2" data-color="blue">2</div>
+			<div class="item mix" data-category="category-1" data-color="blue">1</div>
+			<div class="item mix" data-category="category-1" data-color="blue">1</div>
+			<div class="item mix" data-category="category-1 category-2" data-color="green">1 3</div>
+			<div class="item mix" data-category="category-3" data-color="green">3</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-3" data-color="blue">3</div>
+			<div class="item mix" data-category="category-3" data-color="green">3</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-2 category-3" data-color="green">2 3</div>
+			<div class="item mix" data-category="category-2" data-color="blue">2</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-2" data-color="green">2</div>
+			<div class="item mix" data-category="category-1 category-2" data-color="green">1 2</div>
+			<div class="item mix" data-category="category-2 category-3" data-color="green">2 3</div>
+			<div class="item mix" data-category="category-1" data-color="blue">1</div>
+			<div class="item mix" data-category="category-1" data-color="green">1</div>
+			<div class="item mix" data-category="category-3" data-color="red">3</div>
+			<div class="item mix" data-category="category-3" data-color="blue">3</div>
+			<div class="item mix" data-category="category-3" data-color="red">3</div>
+			<div class="item mix" data-category="category-2" data-color="green">2</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-2" data-color="red">2</div>
+			<div class="item mix" data-category="category-2 category-3" data-color="green">2 3</div>
+			<div class="item mix" data-category="category-2" data-color="blue">2</div>
+			<div class="item mix" data-category="category-1" data-color="blue">1</div>
+			<div class="item mix" data-category="category-1" data-color="blue">1</div>
+			<div class="item mix" data-category="category-1 category-2" data-color="green">1 3</div>
+			<div class="item mix" data-category="category-3" data-color="green">3</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-3" data-color="blue">3</div>
+			<div class="item mix" data-category="category-3" data-color="green">3</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-2 category-3" data-color="green">2 3</div>
+			<div class="item mix" data-category="category-2" data-color="blue">2</div>
+			<div class="item mix" data-category="category-1" data-color="red">1</div>
+			<div class="item mix" data-category="category-2" data-color="green">2</div>
+			<div class="item mix" data-category="category-1 category-2" data-color="green">1 2</div>
+			<div class="item mix" data-category="category-2 category-3" data-color="green">2 3</div>
+			<div class="item mix" data-category="category-1" data-color="blue">1</div>
+			<div class="item mix" data-category="category-1" data-color="green">1</div>
+			<div class="item mix" data-category="category-3" data-color="red">3</div>
+			<div class="item mix" data-category="category-3" data-color="blue">3</div>
+		</section>
+	
+		<section class="pagination">
+			<div class="mixitup-page-list"></div>
+		</section>
+	</div>
+
+	<div class="info">
+		<details>
+			<summary>About</summary>
+			<div>
+				This page uses <a href="https://www.kunkalabs.com/mixitup/">Mixitup</a> with extensions <a href="https://www.kunkalabs.com/mixitup-multifilter/">Mixitup multifilter</a> and <a href="https://www.kunkalabs.com/mixitup-pagination/">Mixitup pagination</a>. Mixitup is installed using `npm install mixitup` and declared in 'declare.d.ts'. Multifilter and pagination are local files added to the js folder. <br><br>
+				Mixitup is used along with functions that manipulate the searchstring/URI in the browser - this way, one can reload the page without losing active filters!
+			</div>
+		</details>
+		<details>
+			<summary>Questions?</summary>
+			<div>
+				Shoot me a message on Slack @Alice or email <a href="mailto:alice.gothberg@toxic.se">alice.gothberg@toxic.se</a>
+			</div>
+		</details>
+		<br><br><br>
+		Alice Göthberg, 14 october 2022
+	</div>
+
+	<script src="wwwroot/js/main.js"></script>
+</body>
+</html>
+
+<!--
+
+	För att "städa" en string (data-label-clean attribute), klistra in följande längst ner i dokumentet eller i en separat htmlhelper:
+
+	@functions
+	{
+		private string cleanString(string s, bool cleanSpace = true)
+		{
+			string clean = s.Trim().ToLower();
+			clean = Regex.Replace(clean, @"[åäáàâ]", "a");
+			clean = Regex.Replace(clean, @"[éèêë]", "e");
+			clean = Regex.Replace(clean, @"[ö]", "o");
+			clean = Regex.Replace(clean, @"[&/!?,:)(']", "");
+			if (cleanSpace)
+			{
+				clean = Regex.Replace(clean, @"[ ]", "-");
+			}
+			return clean.Trim();
+		}
+	}
+
+	För att använda denna: <button data-label-clean="@cleanString(name)">@name</button>
+
+-->
